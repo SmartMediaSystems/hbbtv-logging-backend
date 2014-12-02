@@ -1,0 +1,27 @@
+<configuration>
+    <appender name="infolog" class="LoggerAppenderFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%d{Y-m-d H:i:s} | %p | %m%n" />
+        </layout>
+        <param name="file" value="service_info.log" />
+        <filter class="LoggerFilterLevelRange">
+            <param name="levelMin" value="TRACE" />
+            <param name="levelMax" value="WARN" />
+        </filter>
+    </appender>
+    <appender name="errlog" class="LoggerAppenderFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%d{Y-m-d H:i:s} | %p | %m%n" />
+        </layout>
+        <param name="file" value="service_error.log" />
+        <filter class="LoggerFilterLevelRange">
+            <param name="levelMin" value="ERROR" />
+            <param name="levelMax" value="FATAL" />
+        </filter>
+    </appender>
+    <root>
+        <level value="TRACE" />
+        <appender_ref ref="infolog" />
+        <appender_ref ref="errlog" />
+    </root>
+</configuration>
